@@ -194,4 +194,12 @@ chem.grid(column=7, row=2, columnspan=2)
 total= Label(edd, text='Total:    ', fg='ivory3', font=('bold', 10),  width=90)
 total.grid(column=0, row=3, columnspan=100, pady=10)
 
+
+#################################################################    Submit   #################################################################
+submit=Frame(page)
+submit.pack(pady=20)
+
+Button(submit, text='SUBMIT', fg='white', bg='midnight blue', width=20).pack(side=LEFT, padx=20, pady=20)
+Button(submit, text='CANCEL', fg='white', bg='midnight blue', width=20).pack(side=LEFT, padx=20)
+
 mainloop()
