@@ -177,7 +177,7 @@ Label(edd, text='Board: ').grid(column=6, row=0, padx=10)
 school=Entry(edd, width=26)
 school.grid(column=7, row=0, columnspan=3)
 
-Label(edd, text='Marks',font=('bold', 10),  width=90).grid(column=0, row=1, columnspan=100, pady=10)
+Label(edd, text='Marks',font=('none 10 bold underline'),  width=90).grid(column=0, row=1, columnspan=100, pady=10)
 #
 Label(edd, text='Maths: ').grid(column=0, row=2, padx=10)
 maths=Entry(edd, width=26)
