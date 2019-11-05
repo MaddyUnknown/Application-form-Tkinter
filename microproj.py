@@ -252,17 +252,20 @@ root=Tk()
 root.title('Admission Form')
 root.geometry('1080x820')
 
-page=Canvas(root)
-page.pack(side=LEFT, fill=BOTH)
+page=Canvas(root,width=200, height=200)
 
-scrolly=Scrollbar(page, command=page.yview, orient='vertical')
+scrolly=Scrollbar(root, bg='ivory4',activebackground='black', orient='vertical')
 scrolly.pack(side=RIGHT, fill=Y)
+scrolly.config(command=page.yview)
 page.config(yscrollcommand=scrolly.set)
 
-scrollx=Scrollbar(page, command=page.xview, orient='horizontal')
+scrollx=Scrollbar(root, bg='ivory4',activebackground='black', orient='horizontal')
+scrollx.config(command=page.yview)
 scrollx.pack(side=BOTTOM, fill=X)
-page.config(xscrollcommand=scrollx.set)
+page.config(xscrollcommand=scrollx.set,scrollregion=[0,0,400,400])
 
+page.pack(side=LEFT, fill=BOTH)
+#page.configure(scrollregion=page.bbox("all"))
 
 logo=Frame(page)
 logo.pack()
