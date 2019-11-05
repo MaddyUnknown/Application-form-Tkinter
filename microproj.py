@@ -3,6 +3,7 @@ from tkinter import *
 from datetime import datetime
 import tkinter.messagebox
 import csv
+import prediction
 #===========================================================            FUNCTIONS              =====================================================
 ev=0
 def add():
@@ -236,14 +237,14 @@ def ex():
 
 def res():
     global maths,phy,chem,ev
-    try:
-        mat=float(maths.get())
-        phys=float(phy.get())
-        che=float(chem.get())
-        ev=mat+phys+che
-        total.config(text="Total: %0.2f"%ev)
-    except:
-        pass
+    mat=float(maths.get())
+    phys=float(phy.get())
+    che=float(chem.get())
+    ev=mat+phys+che
+    total.config(text="Total: %0.2f"%ev)
+    print("here")
+    pro.config(text="Chances of getting in: %0.3f %%"%prediction.probability(phys,che,mat))
+    print("here2")
     
     
 ######``````````````````````````````````````````````````````            FORM PAGE              ````````````````````````````````````````````````````````######
@@ -331,85 +332,181 @@ email.grid(column=8, row=4, columnspan=3)
 
 #############################################################      ADDRESS       ###########################################################################
 
-Label(page, text='Permanent Address',bg='midnight Blue', fg='white', width=1000).pack(pady=10)
-
-address=Frame(page)
-address.pack()
-Label(address, text='Street Name and Number:').grid(column=0, row=0, columnspan=2)
+Label(page, text='Address',bg='midnight Blue', fg='white', width=1000).pack(pady=10)
+address_master=Frame(page)
+address_master.pack()
+##############PERMANENT##############
+address=Frame(address_master)
+address.pack(side=LEFT)
+Label(address, text="Permanent:", fg='midnight blue', font=('bold', 10)).grid(column=0, row=0)
+Label(address, text='Street Name and Number:').grid(column=0, row=1, columnspan=2)
 street=Entry(address, width=64)
-street.grid(column=2, row=0, columnspan=10, pady=2)
-
-Label(address, text='Locality: ').grid(column=0, row=1)
+street.grid(column=2, row=1, columnspan=10, pady=2)
+#
+Label(address, text='Locality: ').grid(column=0, row=2)
 local=Entry(address, width=20)
-local.grid(column=1, row=1)
-
-Label(address, text='Police Station: ').grid(column=2, row=1)
+local.grid(column=1, row=2)
+#
+Label(address, text='Police Station: ').grid(column=2, row=2)
 ps=Entry(address, width=20)
-ps.grid(column=3, row=1)
-
-Label(address, text='Post Office: ').grid(column=4, row=1)
+ps.grid(column=3, row=2)
+#
+Label(address, text='Post Office: ').grid(column=4, row=2)
 po=Entry(address, width=20)
-po.grid(column=5, row=1)
-
-Label(address, text='District: ').grid(column=0, row=2)
+po.grid(column=5, row=2)
+#
+Label(address, text='District: ').grid(column=0, row=3)
 district=Entry(address, width=20)
-district.grid(column=1, row=2, pady=2)
-
-Label(address, text='City: ').grid(column=2, row=2)
+district.grid(column=1, row=3, pady=2)
+#
+Label(address, text='City: ').grid(column=2, row=3)
 city=Entry(address, width=20)
-city.grid(column=3, row=2)
-
+city.grid(column=3, row=3)
+#
 ub=StringVar()
 ub.set(0)
-Radiobutton(address, text = "Urban", variable = ub, value = 1).grid(column=4, row=2)
-Radiobutton(address, text = "Rural", variable = ub, value = 2).grid(column=5, row=2)
-
-Label(address, text='State: ').grid(column=0, row=3)
+Radiobutton(address, text = "Urban", variable = ub, value = 1).grid(column=4, row=3)
+Radiobutton(address, text = "Rural", variable = ub, value = 2).grid(column=5, row=3)
+#
+Label(address, text='State: ').grid(column=0, row=4)
 state=Entry(address, width=20)
-state.grid(column=1, row=3)
-
-Label(address, text='Country: ').grid(column=2, row=3)
+state.grid(column=1, row=4)
+#
+Label(address, text='Country: ').grid(column=2, row=4)
 country=Entry(address, width=20)
-country.grid(column=3, row=3)
-
-Label(address, text='Pin: ').grid(column=4, row=3)
+country.grid(column=3, row=4)
+#
+Label(address, text='Pin: ').grid(column=4, row=4)
 pin=Entry(address, width=20)
-pin.grid(column=5, row=3)
+pin.grid(column=5, row=4)
+
+#########CURRENT#############
+c_address=Frame(address_master)
+c_address.pack(side=LEFT, padx=50)
+Label(c_address, text="Current:", fg='midnight blue', font=('bold', 10)).grid(column=0, row=0)
+Label(c_address, text='Street Name and Number:').grid(column=0, row=1, columnspan=2)
+c_street=Entry(c_address, width=64)
+c_street.grid(column=2, row=1, columnspan=10, pady=2)
+#
+Label(c_address, text='Locality: ').grid(column=0, row=2)
+c_local=Entry(c_address, width=20)
+c_local.grid(column=1, row=2)
+#
+Label(c_address, text='Police Station: ').grid(column=2, row=2)
+c_ps=Entry(c_address, width=20)
+c_ps.grid(column=3, row=2)
+#
+Label(c_address, text='Post Office: ').grid(column=4, row=2)
+c_po=Entry(c_address, width=20)
+c_po.grid(column=5, row=2)
+#
+Label(c_address, text='District: ').grid(column=0, row=3)
+c_district=Entry(c_address, width=20)
+c_district.grid(column=1, row=3, pady=2)
+#
+Label(c_address, text='City: ').grid(column=2, row=3)
+c_city=Entry(c_address, width=20)
+c_city.grid(column=3, row=3)
+#
+c_ub=StringVar()
+c_ub.set(0)
+Radiobutton(c_address, text = "Urban", variable = c_ub, value = 1).grid(column=4, row=3)
+Radiobutton(c_address, text = "Rural", variable = c_ub, value = 2).grid(column=5, row=3)
+#
+Label(c_address, text='State: ').grid(column=0, row=4)
+c_state=Entry(c_address, width=20)
+c_state.grid(column=1, row=4)
+#
+Label(c_address, text='Country: ').grid(column=2, row=4)
+c_country=Entry(c_address, width=20)
+c_country.grid(column=3, row=4)
+#
+Label(c_address, text='Pin: ').grid(column=4, row=4)
+c_pin=Entry(c_address, width=20)
+c_pin.grid(column=5, row=4)
+
+add_svar=StringVar()
+add_same=Checkbutton(page,text="Permanent and Current Address are the same", variable =add_svar, onvalue=1, offvalue=0, width=100, fg='midnight blue', font=('bold', 10))#, command=f )
+add_same.deselect()
+add_same.pack()
+
 
 ###################################################################     Guardians Info     ########################################################################
 Label(page, text='Guardian Information',bg='midnight blue', fg='white', width=1000).pack(pady=10)
-guard=Frame(page)
-guard.pack()
 
-Label(guard, text="Name: ").grid(column=0, row=0, sticky=E)
-gname=Entry(guard, width=104)
-gname.grid(column=1, row=0, columnspan=8)
+gardian_master=Frame(page)
+gardian_master.pack()
 
+guard=Frame(gardian_master)
+guard.pack(side=LEFT)
+#
+Label(guard, text="Parents:", fg='midnight blue', font=('bold', 10)).grid(column=0, row=0,sticky=W, columnspan=2)
+Label(guard, text="Name: ").grid(column=0, row=1, sticky=E)
+gname=Entry(guard, width=95)
+gname.grid(column=1, row=1, columnspan=8)
+#
 Label(guard, text='Occupation: ').grid(column=0, row=4, sticky=E)
 gocc=Entry(guard, width=20)
 gocc.grid(column=1, row=4, columnspan=2)
-
+#
 Label(guard, text='Contact Number: ').grid(column=3, row=4, sticky=E)
-gcontact=Entry(guard, width=20)
+gcontact=Entry(guard, width=17)
 gcontact.grid(column=4, row=4, columnspan=2)
-
+#
 Label(guard, text='Email Address: ').grid(column=6, row=4, columnspan=2, sticky=E, padx=7)
 gemail=Entry(guard, width=26)
 gemail.grid(column=8, row=4, columnspan=3, pady=3)
-
-Label(guard, text='Address: ').grid(column=0, row=5, sticky=N, padx=7)
+#
+Label(guard, text='Relation: ').grid(column=0, row=5, sticky=E)
+rel=Entry(guard, width=20)
+rel.grid(column=1, row=5, columnspan=2)
+#
+Label(guard, text='Address: ').grid(column=0, row=6, sticky=NE, padx=7)
 gadd=Frame(guard)
-gadd.grid(column=1, row=5, columnspan=8)
-
+gadd.grid(column=1, row=6, columnspan=8)
+#
 addscroll=Scrollbar(gadd, orient='vertical',bg='ivory4',activebackground='black')
 addscroll.pack(side=RIGHT,fill=Y)
-gaddress=Text(gadd, height=3, width=90, font=('Calibri', 10),yscrollcommand=addscroll.set)
+gaddress=Text(gadd, height=3, width=82, font=('Calibri', 10),yscrollcommand=addscroll.set)
 gaddress.pack(side=LEFT)
-
+#
 addscroll.config( command=gaddress.yview)
 
-
-
+#####################LOCAL GUARDIAN#######################
+l_guard=Frame(gardian_master)
+l_guard.pack(side=LEFT, padx=50)
+#
+Label(l_guard, text="Local Guardian:", fg='midnight blue', font=('bold', 10)).grid(column=0, row=0,sticky=W, columnspan=2)
+Label(l_guard, text="Name: ").grid(column=0, row=1, sticky=E)
+l_gname=Entry(l_guard, width=95)
+l_gname.grid(column=1, row=1, columnspan=8)
+#
+Label(l_guard, text='Occupation: ').grid(column=0, row=4, sticky=E)
+l_gocc=Entry(l_guard, width=20)
+l_gocc.grid(column=1, row=4, columnspan=2)
+#
+Label(l_guard, text='Contact Number: ').grid(column=3, row=4, sticky=E)
+l_gcontact=Entry(l_guard, width=17)
+l_gcontact.grid(column=4, row=4, columnspan=2)
+#
+Label(l_guard, text='Email Address: ').grid(column=6, row=4, columnspan=2, sticky=E, padx=7)
+l_gemail=Entry(l_guard, width=26)
+l_gemail.grid(column=8, row=4, columnspan=3, pady=3)
+#
+Label(l_guard, text='Relation: ').grid(column=0, row=5, sticky=E)
+l_rel=Entry(l_guard, width=20)
+l_rel.grid(column=1, row=5, columnspan=2)
+#
+Label(l_guard, text='Address: ').grid(column=0, row=6, sticky=NE, padx=7)
+l_gadd=Frame(l_guard)
+l_gadd.grid(column=1, row=6, columnspan=8)
+#
+l_addscroll=Scrollbar(l_gadd, orient='vertical',bg='ivory4',activebackground='black')
+l_addscroll.pack(side=RIGHT,fill=Y)
+l_gaddress=Text(l_gadd, height=3, width=82, font=('Calibri', 10),yscrollcommand=l_addscroll.set)
+l_gaddress.pack(side=LEFT)
+#
+l_addscroll.config( command=l_gaddress.yview)
 
 
 #####################################################################     Educational Qualification     ############################################################
@@ -445,11 +542,13 @@ submit=Frame(page)
 submit.pack(pady=20)
 
 total= Button(submit, text='Total:', fg='bisque4',width=20,  bd=0, font=('none 10 '),command=lambda:res())
-total.grid(column=2, row=0, pady=10)
+total.grid(column=2, row=0)
 
-Label(submit, text="(Tap total to generate total)", fg='bisque4').grid(column=4, row=0, pady=10)
+Label(submit, text="(Tap total to generate total)", fg='bisque4').grid(column=4, row=0)
+pro=Label(submit , fg='bisque4',width=50,  bd=0, font=('none 10 '))
+pro.grid(row=1, column=2, columnspan=2)
 
-Button(submit, text='CANCEL', fg='white', bg='midnight blue', width=20,command=ex).grid(column=4,row=4, pady=10)
-Button(submit, text='SUBMIT', fg='white', bg='midnight blue', width=20,command=add).grid(column=2, row=4, pady=10)
+Button(submit, text='CANCEL', fg='white', bg='midnight blue', width=20,command=ex).grid(column=4,row=4)
+Button(submit, text='SUBMIT', fg='white', bg='midnight blue', width=20,command=add).grid(column=2, row=4)
 
 mainloop()
