@@ -511,21 +511,26 @@ l_gaddress.pack(side=LEFT)
 #
 l_addscroll.config( command=l_gaddress.yview)
 
+add_lvar=StringVar()
+add_lame=Checkbutton(page,text="Local guardian same", variable =add_lvar, onvalue=1, offvalue=0, width=100, fg='midnight blue', font=('bold', 10))#, command=f )
+add_lame.deselect()
+add_lame.pack()
+
 
 #####################################################################     Educational Qualification     ############################################################
-Label(page, text='Educational Qualification',bg='midnight blue', fg='white', width=1000).pack(pady=10)
+Label(page, text='Educational Qualification',bg='midnight blue',bd=6, fg='white', width=1000).pack(pady=10)
 edd=Frame(page)
-edd.pack()
+edd.pack(side=LEFT, padx=50)
 
 Label(edd, text='School: ').grid(column=0, row=0)
 school=Entry(edd, width=50)
 school.grid(column=1, row=0, columnspan=4)
 
 Label(edd, text='Board: ').grid(column=6, row=0, padx=10)
-board=Entry(edd, width=26)
+board=Entry(edd, width=21)
 board.grid(column=7, row=0, columnspan=3)
 
-Label(edd, text='Marks',font=('none 10 bold underline'),  width=90).grid(column=0, row=1, columnspan=100, pady=10)
+Label(edd, text='Marks',font=('none 10 bold underline'),  width=90).grid(column=0, row=1, columnspan=10, pady=10)
 #
 Label(edd, text='Maths: ').grid(column=0, row=2, padx=10)
 maths=Entry(edd, width=26)
@@ -539,19 +544,19 @@ Label(edd, text='Chemistry: ').grid(column=6, row=2, padx=10)
 chem=Entry(edd, width=26)
 chem.grid(column=7, row=2, columnspan=2)
 
+total= Button(edd, text='Total:', fg='bisque4',width=20,  bd=0, font=('none 10 '),command=lambda:res())
+total.grid(column=10, row=0, sticky=E)
+
+Label(edd, text="(Tap total to generate total)", fg='bisque4').grid(column=11, row=0)
+pro=Label(edd , fg='bisque4',width=30,  bd=0, font=('none 10 '))
+pro.grid(row=1, column=10, columnspan=2)
+
 
 #################################################################    Submit   #################################################################
 submit=Frame(page)
-submit.pack(pady=20)
+submit.pack(side=RIGHT, padx=60)
 
-total= Button(submit, text='Total:', fg='bisque4',width=20,  bd=0, font=('none 10 '),command=lambda:res())
-total.grid(column=2, row=0)
-
-Label(submit, text="(Tap total to generate total)", fg='bisque4').grid(column=4, row=0)
-pro=Label(submit , fg='bisque4',width=50,  bd=0, font=('none 10 '))
-pro.grid(row=1, column=2, columnspan=2)
-
-Button(submit, text='CANCEL', fg='white', bg='midnight blue', width=20,command=ex).grid(column=4,row=4)
-Button(submit, text='SUBMIT', fg='white', bg='midnight blue', width=20,command=add).grid(column=2, row=4)
+Button(submit, text='CANCEL', fg='white', bg='midnight blue', width=20,command=ex).grid(column=4,row=0, pady=10)
+Button(submit, text='SUBMIT', fg='white', bg='midnight blue', width=20,command=add).grid(column=4, row=2)
 
 mainloop()
