@@ -267,7 +267,9 @@ def add():
             w=csv.writer(file,delimiter=',')
             w.writerow([l,f,DOB,l2[s-1],l3[v-1],p,m,e,
                         st,lo,p_s,p_o,d,ci,l4[ur-1],sta,co,pi,
-                        na,occ,cn,ea,ga,
+                        cst,clo,cp_s,cp_o,cd,cci,cl4[ur-1],csta,cco,cpi,
+                        na,occ,cn,ea,re,ga,
+                        lna,locc,lcn,lea,lre,lga,
                         sch,boa,mat,phys,che,ev])
             file.close()
         #____________________________________________________
