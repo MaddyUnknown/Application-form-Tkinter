@@ -1,37 +1,5 @@
 last_name,first_name,DOB,sex,V/NV,Ph_no.,Mobile_no.,Email,P_Street,P_Locality,P_Police_Station,P_Post_office,P_District,P_City,P_Urban/Rural,P_State,P_Country,P_Pin,CUR_Street,CUR_Locality,CUR_Police_Station,CUR_Post_office,CUR_District,CUR_City,CUR_Urban/Rural,CUR_State,CUR_Country,CUR_Pin,Parent's_name,P_Occupation,P_Contact,P_Email,P_Relation,P_Address,Guardian_name,Occupation,Contact,G_Email,G_Relation,G_Address,School,Board,Maths,Physics,Chem,TOTAL
-q,q,1/1/31,Male,Veg,1234567890,1234567890,a@g.c,q,q,q,q,q,q,Urban,s,w,900900,q,q,q,q,q,q,Urban,s,w,900900,a,sd,2343898989,a@j.b,s,"zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdvzzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
+Hossain,Mehdi,2000/4/27,Male,Veg,1234567890,0987654321,hm@gmail.com,street,locality,PS,PO,district,city,Urban,state,Country,700103,street,locality,PS,PO,district,city,Urban,state,Country,700103,Father's Name,Job,1234567890,mh@gmail.com,Father,"Address
+",Father's Name,Job,1234567890,mh@gmail.com,Father,"Address
 
-",a,sd,2343898989,a@j.b,s,"zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdvzzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-zzn jshdbsudhvwuvwduvduvuwvdcbsdvbudsvduvbduvbduvdv
-
-
-",q,w,55.0,55.0,55.0,165.0
-a,a,1/1/1,Male,Non-veg,1234567890,1234567890,a@h.h,s,s,s,s,s,s,Urban,s,s,345434,s,s,1234567890,a@h.h,"c
-",d,d,7.0,8.0,8.0,23.0
-a,a,1/11/1,Male,Non-veg,1234343434,1234343434,a'2@h.h,s,s,s,s,s,s,Urban,s,d,234543,a,a,1234343434,a'2@h.h,"a
-",zs,s,23.0,99.0,60.0,182.0
+",School,Board,95.0,90.0,89.0,274.0

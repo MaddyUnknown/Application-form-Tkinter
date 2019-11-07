@@ -238,7 +238,7 @@ def add():
         tkinter.messagebox.showerror('','Marks should be positive and less than 100!')
         return
 
-    zz=tkinter.messagebox.askyesno("sc calc",'Are you sure you want to submit?')
+    zz=tkinter.messagebox.askyesno("Application Form",'Are you sure you want to submit?')
     if zz>0:
         file=open('p.csv')
         list=[row for row in csv.DictReader(file)]
@@ -333,8 +333,8 @@ def add():
         return
 
 def ex():
-    ee=tkinter.messagebox.askyesno("sc calc",'Are you sure u want to cancel?')
-    if e>0:
+    ee=tkinter.messagebox.askyesno("Application Form",'Are you sure u want to cancel?')
+    if ee>0:
         root.destroy()
         return
 
@@ -408,13 +408,13 @@ root.geometry('1480x820')
 page=Canvas(root)
 page.pack(side=LEFT, fill=BOTH)
 
-scrolly=Scrollbar(page, command=page.yview, orient='vertical')
+'''scrolly=Scrollbar(page, command=page.yview, orient='vertical')
 scrolly.pack(side=RIGHT, fill=Y)
 page.config(yscrollcommand=scrolly.set)
 
 scrollx=Scrollbar(page, command=page.xview, orient='horizontal')
 scrollx.pack(side=BOTTOM, fill=X)
-page.config(xscrollcommand=scrollx.set)
+page.config(xscrollcommand=scrollx.set)'''
 
 
 logo=Frame(page)
