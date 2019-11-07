@@ -340,16 +340,16 @@ def ex():
 
 
 def res():
-    global maths,phy,chem,ev
-    mat=float(maths.get())
-    phys=float(phy.get())
-    che=float(chem.get())
-    ev=mat+phys+che
-    total.config(text="Total: %0.2f"%ev)
-    print("here")
-    pro.config(text="Chances of getting in: %0.3f %%"%prediction.probability(phys,che,mat))
-    print("here2")
-
+    try:
+        global maths,phy,chem,ev
+        mat=float(maths.get())
+        phys=float(phy.get())
+        che=float(chem.get())
+        ev=mat+phys+che
+        total.config(text="Total: %0.2f"%ev)
+        pro.config(text="Chances of getting in: %0.3f %%"%prediction.probability(phys,che,mat))
+    except:
+        pass
 
 def cur_add():
     if(add_svar.get()==1):
