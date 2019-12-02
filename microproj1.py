@@ -405,16 +405,15 @@ root=Tk()
 root.title('Admission Form')
 root.geometry('1480x820')
 
-page=Canvas(root)
-page.pack(side=LEFT, fill=BOTH)
 
-'''scrolly=Scrollbar(page, command=page.yview, orient='vertical')
-scrolly.pack(side=RIGHT, fill=Y)
-page.config(yscrollcommand=scrolly.set)
 
-scrollx=Scrollbar(page, command=page.xview, orient='horizontal')
-scrollx.pack(side=BOTTOM, fill=X)
-page.config(xscrollcommand=scrollx.set)'''
+canvas = Canvas(root,width=1200,height=2000)
+scroll_y = Scrollbar(root, orient="vertical", command=canvas.yview)#,relief="groove")
+scroll_x = Scrollbar(root, orient="horizontal", command=canvas.xview)#,relief="groove")
+
+frame = Frame(canvas)
+page=Frame(frame,height=2200,width=1600)#,relief="sunken")
+page.pack(expand=True, fill=BOTH)
 
 
 logo=Frame(page)
@@ -427,7 +426,7 @@ Label(logo, text="St. Thomas' College of Engineering & Technology", font=('Ailer
 Label(logo, text="Kolkata, West Bengal", font=('Penna', 15), fg='dark slate blue').grid(column=1, row=1, sticky=W, padx=10)
 
 
-Person_title=Label(page,fg='white', text='Personal Information', bg='midnight Blue', width=1000).pack(pady=10)
+Person_title=Label(page,fg='white', text='Personal Information', bg='midnight Blue', width=235).pack(pady=10)
 Name=Frame(page)
 Name.pack()
 Label(Name, text="Last Name: ").grid(column=0, row=0, sticky=E)
@@ -485,7 +484,7 @@ email.grid(column=8, row=4, columnspan=3)
 
 #############################################################      ADDRESS       ###########################################################################
 
-Label(page, text='Address',bg='midnight Blue', fg='white', width=1000).pack(pady=10)
+Label(page, text='Address',bg='midnight Blue', fg='white', width=235).pack(pady=10)
 address_master=Frame(page)
 address_master.pack()
 ##############PERMANENT##############
@@ -585,7 +584,7 @@ add_same.pack()
 
 
 ###################################################################     Guardians Info     ########################################################################
-Label(page, text='Guardian Information',bg='midnight blue', fg='white', width=1000).pack(pady=10)
+Label(page, text='Guardian Information',bg='midnight blue', fg='white', width=235).pack(pady=10)
 
 gardian_master=Frame(page)
 gardian_master.pack()
@@ -668,7 +667,7 @@ add_lame.pack()
 
 
 #####################################################################     Educational Qualification     ############################################################
-Label(page, text='Educational Qualification',bg='midnight blue',bd=6, fg='white', width=1000).pack(pady=10)
+Label(page, text='Educational Qualification',bg='midnight blue',bd=6, fg='white', width=235).pack(pady=10)
 edd=Frame(page)
 edd.pack(side=LEFT, padx=50)
 
@@ -708,5 +707,18 @@ submit.pack(side=RIGHT, padx=60)
 
 Button(submit, text='CANCEL', fg='white', bg='midnight blue', width=20,command=ex).grid(column=4,row=0, pady=10)
 Button(submit, text='SUBMIT', fg='white', bg='midnight blue', width=20,command=add).grid(column=4, row=2)
+
+
+canvas.create_window(0, 0, anchor='nw', window=frame)
+
+canvas.update_idletasks()
+
+canvas.configure(scrollregion=canvas.bbox('all'),
+                 yscrollcommand=scroll_y.set,
+                 xscrollcommand=scroll_x.set)
+
+canvas.pack(fill='both', expand=True, side='left')
+scroll_y.pack(fill='y', side='right')
+scroll_x.pack(fill='y', side='bottom')
 
 mainloop()
