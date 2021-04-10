@@ -19,7 +19,7 @@ The application developed in this project is a form fillup system for an organis
 ![application example](https://github.com/MaddyUnknown/Application-form-Tkinter/blob/master/Readme_img/Application%20form.png)
 > ###### GUI of Application
 
-![error_message](https://github.com/MaddyUnknown/Application-form-Tkinter/blob/master/Readme_img/error%20message.png| width=100)
+![error_message](https://github.com/MaddyUnknown/Application-form-Tkinter/blob/master/Readme_img/error%20message.png | width=100)
 > ###### Invalid Field Value
 
 ![predictor](https://github.com/MaddyUnknown/Application-form-Tkinter/blob/master/Readme_img/predictor.png)
