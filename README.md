@@ -20,7 +20,6 @@ The application developed in this project is a form fillup system for an organis
 > ###### GUI of Application
 
 <img src="https://github.com/MaddyUnknown/Application-form-Tkinter/blob/master/Readme_img/error%20message.png" width="500">
-> ###### Invalid Field Value
 
 ![predictor](https://github.com/MaddyUnknown/Application-form-Tkinter/blob/master/Readme_img/predictor.png)
 > ###### Predictor Box
