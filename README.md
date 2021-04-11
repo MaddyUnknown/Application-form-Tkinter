@@ -21,9 +21,9 @@ The application developed in this project is a form fillup system for an organis
 
 ## Requirement:
   ### Language:
-  -`Python`
+  `Python`
   ### Modules
-  -`Pandas`
-  -`Matplotlib`
-  -`Tkinter`
-  -`csv`
+  `Pandas`
+  `Matplotlib`
+  `Tkinter`
+  `csv`
